@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Renzo Reyna - Analista de datos y desarrollador Python. Diseño soluciones tecnológicas accesibles para instituciones y empresas.">
+  <meta name="keywords" content="Renzo Reyna, analista de datos, Python, automatización, datos, inteligencia artificial, desarrollo web">
+  <meta name="author" content="Renzo Reyna">
+  <title>Renzo Reyna | Datos y Automatización</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/service.css"/> 
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">
+        <img src="static/image/MiLogoPersonal.png" alt="Logo Renzo Reyna">
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="service" class="active">Servicios</a></li>
+        <li><a href="profile">Sobre mi</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Cambiar modo">🌙</button>
+    </nav>
+  </header>
+
+  <section class="hero fade-in">
+    <h1>Analista de Datos & Automatizador</h1>
+    <p>Transformo procesos e información en soluciones eficientes usando Python, inteligencia artificial y análisis de datos.</p>
+    <a href="#contacto" class="cta">¡Trabajemos juntos hoy!</a>
+  </section>
+  
+  <section id="servicios" class="section fade-in">
+    <h2>Automatización de procesos</h2>
+    <div class="card">
+      <p class="text-center"><strong>Análisis de Datos:</strong> extracción, visualización y toma de decisiones basadas en datos.</p>
+      <p class="text-center"><strong>Automatización con Python:</strong> ahorro de tiempo y reducción de errores operativos.</p>
+      <p class="text-center"><strong>Scraper de precios:</strong> monitoreo de productos en tiempo real para e-commerce y ventas en Mercado Libre.</p>
+    </div>
+  </section>
+
+  <section id="proyectos" class="section fade-in">
+    <h2>Sistemas de control y monitoreo</h2>
+    <div class="card">
+      <p class="text-center"><strong>Sistema de monitoreo:</strong> registro de operaciones automatizado para gobiernos locales de baja digitabilidad.</p>
+      <p class="text-center"><strong>Panel de visualización:</strong> dashboards interactivos con Streamlit, Plotly y Power BI.</p>
+      <p class="text-center"><strong>Aplicaciones Web:</strong> interfaces simples para procesos complejos, sin depender de software costoso.</p>
+    </div>
+  </section>
+
+  <section id="contacto" class="section fade-in">
+    <h2>Contame como puedo Ayudarte a conseguir tus Objetivos</h2>
+    <div class="card">
+      <form action="mailto:renzoreyna@gmail.com" method="POST" enctype="text/plain">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu email" required>
+        <textarea name="mensaje" rows="5" placeholder="Contame tu idea o consulta" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container rrss">
+          <div class="d-flex justify-content-center">
+            <p class="text-center" style="color: #807c9a;">Sígueme en redes sociales:</p>
+            <div class="social-icons py-3">
+              <a href="https://www.facebook.com/renzoreyna.88/" class="facebook" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="https://substack.com/@renzoreyna" class="substack" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-substack"></i>
+              </a>
+              <a href="https://github.com/RenzoReyna88" class="github" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="https://www.instagram.com/reynarenzo88/" class="instagram" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="https://twitter.com/Reynarenzo88" class="twitter" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/renzo-reyna/" class="linkedin" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p>&copy; 2023 - 2025 Renzo Reyna - Datos y Automatización</p>
+  </footer>
+
+    <script>
+      // NAV toggle para móviles
+      (function(){
+        const navToggle = document.querySelector('.nav-toggle');
+        const navList = document.getElementById('nav-list');
+        if(navToggle && navList){
+          navToggle.addEventListener('click', () => {
+            const isOpen = navList.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          });
+
+          // cerrar al hacer click en enlace (UX)
+          navList.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+              navList.classList.remove('open');
+              navToggle.setAttribute('aria-expanded','false');
+            });
+          });
+        }
+      })();
+
+      // Tema claro/oscuro (persistente)
+      (function(){
+        const btn = document.getElementById('theme-toggle');
+        const body = document.body;
+        const saved = localStorage.getItem('site-theme');
+        if(saved === 'dark') body.classList.add('dark');
+        btn.addEventListener('click', () => {
+          const isDark = body.classList.toggle('dark');
+          btn.textContent = isDark ? '☀️' : '🌙';
+          btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+          localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
+        });
+        // estado inicial del botón
+        btn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+      })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+version: '3'
+networks:
+  mi-red:
+    driver: bridge
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - mi-red
+    environment:
+      - FLASK_APP=source/app.py
+      - host=db
+      - user=user
+      - password=password
+      - db=db    
+    volumes:
+      - .env:/app/.env
+    depends_on:
+      - db
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=user 
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    networks:
+      - mi-red
+    ports:
+      - "5432:5432"

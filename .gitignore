@@ -2,3 +2,9 @@
 env/
 __pycache__/
 .pytest_cache
+
+/utils
+docker-compose.override.yml
+dockerfile
+
+
