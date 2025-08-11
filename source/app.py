@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, flash, redirect
-from flask_mail import Mail, Message
+from flask import Flask
+from flask_mail import Mail
 
 # modulo para entorno local
 # from config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY

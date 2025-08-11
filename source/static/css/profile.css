@@ -189,6 +189,23 @@ main {
   cursor: default; /* cambiar a pointer solo si necesario */
 }
 
+
+
+/* Imagen del logo */
+.bio .logobio img {
+  width: 120px; /* tamaño ajustable */
+  height: 150px; /* tamaño ajustable */
+  border-radius: 9%; /* opcional: circular */
+  box-shadow: 0 4px 10px rgba(6, 100, 100, 0.5);
+}
+
+/* Para el texto, que ocupe lo que resta del espacio */
+.bio p {
+  flex: 1;
+  margin: 0;
+}
+
+
 body.dark .bio,
 body.dark .goals,
 body.dark .contact {
