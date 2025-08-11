@@ -27,11 +27,23 @@
     </nav>
   </header>
 
+  <div class="flash-message" role="status" aria-live="polite">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+  </div>
+
   <section class="hero fade-in">
     <h1>Analista de Datos & Automatizador</h1>
     <p>Transformo procesos e información en soluciones eficientes usando Python, inteligencia artificial y análisis de datos.</p>
     <a href="#contacto" class="cta">¡Trabajemos juntos hoy!</a>
   </section>
+
+
   
   <section id="servicios" class="section fade-in">
     <h2>Automatización de procesos</h2>
@@ -54,7 +66,7 @@
   <section id="contacto" class="section fade-in">
     <h2>Contame como puedo Ayudarte a conseguir tus Objetivos</h2>
     <div class="card">
-      <form action="mailto:renzoreyna@gmail.com" method="POST" enctype="text/plain">
+      <form action="{{ url_for('sitio.contacto') }}" method="POST">
         <input type="text" name="nombre" placeholder="Tu nombre" required>
         <input type="email" name="email" placeholder="Tu email" required>
         <textarea name="mensaje" rows="5" placeholder="Contame tu idea o consulta" required></textarea>

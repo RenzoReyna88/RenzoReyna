@@ -1,20 +1,28 @@
-from flask import Flask, jsonify
-# from config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_JWT, SECRET_KEY
-from source.routes.sitio import sitio
+from flask import Flask, render_template, request, flash, redirect
+from flask_mail import Mail, Message
+from config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
+
+# modulo para entorono de producción en Render
+# from source.routes.sitio import sitio
+
+# modulo para entorno local
+from routes.sitio import sitio
+
+
 
 
 
 
 app= Flask(__name__)
 
-
-# app.config['MAIL_SERVER']= 'smtp.gmail.com'
-# app.config['MAIL_PORT']= 465
-# app.config['MAIL_USE_SSL']= True
-# app.config['MAIL_USERNAME']= f'{USUARIO_GMAIL}'
-# app.config['MAIL_PASSWORD']= f'{PASSWORD_GMAIL}'
-# app.config['MAIL_DEFAULT_SENDER']= f'{USUARIO_GMAIL}'
-# mail= Mail(app)
+app.secret_key = SECRET_KEY
+app.config['MAIL_SERVER']= 'smtp.gmail.com'
+app.config['MAIL_PORT']= 465
+app.config['MAIL_USE_SSL']= True
+app.config['MAIL_USERNAME']= f'{USUARIO_GMAIL}'
+app.config['MAIL_PASSWORD']= f'{PASSWORD_GMAIL}'
+app.config['MAIL_DEFAULT_SENDER']= f'{USUARIO_GMAIL}'
+mail= Mail(app)
 
 # app.config['SECRET_KEY']= f'{SECRET_KEY}'
 
@@ -24,16 +32,8 @@ app= Flask(__name__)
 app.register_blueprint(sitio)
 
 
-def status_401(error):   
-    return '<h1>Error 401. No está autorizado a acceder esta vista</h1>'
-
-def pagina_no_encontrada(error): 
-   return jsonify(msg='Token inválido'), 401
-
 
 
                                                               
 if __name__ == '__main__':
-    app.register_error_handler(404, pagina_no_encontrada)
-    app.register_error_handler(401, status_401)  
     app.run(debug=True)

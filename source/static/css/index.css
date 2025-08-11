@@ -133,6 +133,33 @@ nav {
 }
 
 
+
+.flash-message {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  margin-top: 1rem; /* Separación superior */
+}
+
+.flash-message .alert {
+  max-width: 500px; /* Controlar ancho máximo */
+  width: auto; /* Ajusta al contenido */
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  text-align: center;
+}
+
+/* Modo oscuro */
+body.dark .flash-message .alert {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+
+
 /* Hero section */
 .hero {
   text-align: center;
