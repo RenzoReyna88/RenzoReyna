@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, flash, redirect
 from flask_mail import Mail, Message
-from config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
 
-# modulo para entorono de producción en Render
-# from source.routes.sitio import sitio
+# modulo para entorno local
+# from config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
+
+# modulo para entorno de producción en Render
+from source.config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
 
 # modulo para entorno local
 from routes.sitio import sitio
+
+# modulo para entorono de producción en Render
+from source.routes.sitio import sitio
+
 
 
 
