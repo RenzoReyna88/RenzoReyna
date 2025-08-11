@@ -8,7 +8,7 @@ from flask_mail import Mail, Message
 from source.config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
 
 # modulo para entorno local
-from routes.sitio import sitio
+# from routes.sitio import sitio
 
 # modulo para entorono de producción en Render
 from source.routes.sitio import sitio
