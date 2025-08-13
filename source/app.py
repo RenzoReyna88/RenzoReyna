@@ -2,16 +2,14 @@ from flask import Flask
 from flask_mail import Mail
 
 # modulo para entorno local
-from config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
-
+# from config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
 # modulo para entorno de producción en Render
-# from source.config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
+from source.config import USUARIO_GMAIL, PASSWORD_GMAIL, SECRET_KEY
 
 # modulo para entorno local
-from routes.sitio import sitio
-
+# from routes.sitio import sitio
 # modulo para entorono de producción en Render
-# from source.routes.sitio import sitio
+from source.routes.sitio import sitio
 
 
 
